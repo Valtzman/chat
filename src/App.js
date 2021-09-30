@@ -1,13 +1,21 @@
 import React, { Component } from 'react'
-import { Auth } from './pages'
-import { BrowserRouter as Router } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+
+import { Auth, Home } from './pages'
 
 class App extends Component {
 	render() {
 		return (
 			<Router>
 				<>
-					<Auth />
+					<Switch>
+						<Route exact path={['/', '/login', '/register']}>
+							<Auth />
+						</Route>
+						<Route exact path="/im">
+							<Home />
+						</Route>
+					</Switch>
 				</>
 			</Router>
 		)

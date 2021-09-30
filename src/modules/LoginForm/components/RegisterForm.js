@@ -10,7 +10,7 @@ import {
 	CheckCircleTwoTone,
 } from '@ant-design/icons'
 import { Button } from '../../../components'
-import { Link, Route } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 function RegisterForm() {
 	const [success, setSuccess] = useState(false)
@@ -132,6 +132,7 @@ function RegisterForm() {
 								className="login-form-button"
 								type="primary"
 								size="large"
+								onClick={() => setSuccess(true)}
 							>
 								Зарегистрироваться
 							</Button>

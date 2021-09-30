@@ -8,18 +8,18 @@ import './Auth.scss'
 
 function Auth() {
 	return (
-		<section className="auth">
-			<div className="auth__content">
-				<Switch>
+		<Switch>
+			<section className="auth">
+				<div className="auth__content">
 					<Route exact path={['/', '/login']}>
 						<LoginFormComp />
 					</Route>
-					<Route path="/register">
+					<Route exact path="/register">
 						<RegisterForm />
 					</Route>
-				</Switch>
-			</div>
-		</section>
+				</div>
+			</section>
+		</Switch>
 	)
 }
 
