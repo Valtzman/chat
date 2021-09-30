@@ -12,8 +12,18 @@ import {
 import { Button } from '../../../components'
 import { Link } from 'react-router-dom'
 
-function RegisterForm() {
+function RegisterForm(props) {
 	const [success, setSuccess] = useState(false)
+	const {
+		values,
+		touched,
+		errors,
+		handleChange,
+		handleBlur,
+		handleSubmit,
+		isValid,
+		isSubmitting,
+	} = props
 
 	const onFinish = (values) => {
 		console.log('Received values of form: ', values)
@@ -34,25 +44,7 @@ function RegisterForm() {
 						onFinish={onFinish}
 					>
 						<Form.Item
-							name="nickname"
-							tooltip="What do you want others to call you?"
-							rules={[
-								{
-									required: true,
-									message: 'Please input your nickname!',
-									whitespace: true,
-								},
-							]}
-						>
-							<Input
-								size="large"
-								placeholder="Имя"
-								prefix={<UserOutlined className="site-form-item-icon" />}
-							/>
-						</Form.Item>
-
-						<Form.Item
-							name="username"
+							name="email"
 							rules={[
 								{ required: true, message: 'Please input your Username!' },
 							]}
@@ -68,6 +60,24 @@ function RegisterForm() {
 								// value={values.email}
 								// onChange={handleChange}
 								// onBlur={handleBlur}
+							/>
+						</Form.Item>
+
+						<Form.Item
+							name="nickname"
+							tooltip="What do you want others to call you?"
+							rules={[
+								{
+									required: true,
+									message: 'Please input your nickname!',
+									whitespace: true,
+								},
+							]}
+						>
+							<Input
+								size="large"
+								placeholder="Имя"
+								prefix={<UserOutlined className="site-form-item-icon" />}
 							/>
 						</Form.Item>
 
@@ -127,12 +137,11 @@ function RegisterForm() {
 							{/* {isSubmitting && !isValid && <span>Ошибка!</span>} */}
 							<Button
 								// disabled={isSubmitting}
-								// onClick={handleSubmit}
+								onClick={handleSubmit}
 								htmlType="submit"
 								className="login-form-button"
 								type="primary"
 								size="large"
-								onClick={() => setSuccess(true)}
 							>
 								Зарегистрироваться
 							</Button>
