@@ -2,13 +2,14 @@
 
 .message {
 	$self: &;
-	max-width: 440px;
+
 	display: flex;
 	margin-bottom: 20px;
 	position: relative;
 
 	&__content {
 		display: flex;
+		max-width: 440px;
 		&:hover {
 			#{$self}__icon-actions {
 				display: block;
@@ -55,6 +56,8 @@
 	}
 
 	&__info {
+		display: flex;
+		flex-direction: column;
 	}
 
 	// display: flex;
@@ -93,6 +96,19 @@
 			// align-items: center;
 			// text-align: right;
 			// flex-direction: column;
+		}
+	}
+
+	&__attachments {
+		display: flex;
+		&-item {
+			margin-right: 5px;
+			cursor: pointer;
+		}
+
+		img {
+			width: 45px;
+			height: 45px;
 		}
 	}
 }

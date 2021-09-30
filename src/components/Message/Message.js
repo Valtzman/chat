@@ -4,8 +4,9 @@ import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 import classNames from 'classnames'
 
 import checkedSvg from '../../assets/img/readed.svg'
+import noreadedSvg from '../../assets/img/noreaded.svg'
 
-function Message({ avatar, user, text, date, isMe, isReaded }) {
+function Message({ avatar, user, text, date, isMe, isReaded, attachments }) {
 	return (
 		<div className={classNames('message', { 'message--isme': isMe })}>
 			<div className="message__content">
@@ -18,9 +19,21 @@ function Message({ avatar, user, text, date, isMe, isReaded }) {
 							<p>{text}</p>
 						</div>
 					</div>
-
+					<div className="message__attachments">
+						{attachments &&
+							attachments.map((item) => (
+								<div className="message__attachments-item">
+									<img src={item.url} alt={item.filename} />
+								</div>
+							))}
+					</div>
 					<span className="message__date">
-						<img src={checkedSvg} alt="Checked icon" />
+						{isMe &&
+							(isReaded ? (
+								<img src={checkedSvg} alt="Checked icon" />
+							) : (
+								<img src={noreadedSvg} alt="Noreaded icon" />
+							))}
 						{formatDistanceToNow(
 							date,
 							{ includeSeconds: true },
