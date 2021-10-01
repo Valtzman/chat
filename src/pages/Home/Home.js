@@ -30,6 +30,7 @@ function Home() {
 					},
 				]}
 			/>
+			<div>Huy v jope</div>
 		</section>
 	)
 }
