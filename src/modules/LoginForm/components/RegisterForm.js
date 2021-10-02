@@ -48,6 +48,8 @@ function RegisterForm(props) {
 							rules={[
 								{ required: true, message: 'Please input your Username!' },
 							]}
+							errors={errors}
+							values={values}
 							// validateStatus={validateField('email', touched, errors)}
 							// help={!touched.email ? '' : errors.email}
 							// hasFeedback
@@ -66,6 +68,8 @@ function RegisterForm(props) {
 						<Form.Item
 							name="nickname"
 							tooltip="What do you want others to call you?"
+							errors={errors}
+							values={values}
 							rules={[
 								{
 									required: true,
@@ -83,6 +87,8 @@ function RegisterForm(props) {
 
 						<Form.Item
 							name="password"
+							errors={errors}
+              				values={values}
 							rules={[
 								{ required: true, message: 'Please input your password!' },
 							]}
@@ -106,6 +112,8 @@ function RegisterForm(props) {
 							name="Подтвердите пароль"
 							dependencies={['password']}
 							hasFeedback
+							errors={errors}
+              				values={values}
 							rules={[
 								{
 									required: true,

@@ -6,19 +6,28 @@ import classNames from 'classnames'
 import checkedSvg from '../../assets/img/readed.svg'
 import noreadedSvg from '../../assets/img/noreaded.svg'
 
-function Message({ avatar, user, text, date, isMe, isReaded, attachments }) {
+function Message({ avatar, user, text, date, isMe, isReaded, attachments, isTyping }) {
 	return (
-		<div className={classNames('message', { 'message--isme': isMe })}>
+		<div className={classNames('message', { 
+			'message--isme': isMe, 
+			'message--is-typing': isTyping
+			})}>
 			<div className="message__content">
 				<div className="message__avatar">
 					<img src={avatar} alt={`Avatar ${user.fullname}`} />
 				</div>
 				<div className="message__info">
+					{(text || isTyping) && (
 					<div className="message__bubble">
-						<div className="message__text">
-							<p>{text}</p>
+							 <div className="message__text">
+								<p>{text}</p>
+							{isTyping && <div className="message__typing">
+								<span />
+                  				<span />
+                  				<span />
+							</div>}
 						</div>
-					</div>
+					</div>)}
 					<div className="message__attachments">
 						{attachments &&
 							attachments.map((item) => (
@@ -27,7 +36,7 @@ function Message({ avatar, user, text, date, isMe, isReaded, attachments }) {
 								</div>
 							))}
 					</div>
-					<span className="message__date">
+					{date && <span className="message__date">
 						{isMe &&
 							(isReaded ? (
 								<img src={checkedSvg} alt="Checked icon" />
@@ -39,7 +48,7 @@ function Message({ avatar, user, text, date, isMe, isReaded, attachments }) {
 							{ includeSeconds: true },
 							{ addSuffix: true }
 						)}
-					</span>
+					</span>}
 				</div>
 			</div>
 		</div>

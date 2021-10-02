@@ -30,7 +30,23 @@ function Home() {
 					},
 				]}
 			/>
-			<div>Huy v jope</div>
+			<Message
+				avatar="https://i.pinimg.com/474x/a7/f5/3e/a7f53e97cdfd492fcccf3a7d2457771e--beautiful-redhead-red-heads.jpg"
+				text={null}
+				date={new Date(2021, 8, 29, 14, 35)}
+				isMe={false}
+				isTyping
+			/>
+			<Message
+				avatar="https://i.pinimg.com/474x/a7/f5/3e/a7f53e97cdfd492fcccf3a7d2457771e--beautiful-redhead-red-heads.jpg"
+				isMe={false}
+				attachments={[
+					{
+						filename: 'photo1',
+						url: 'https://media.istockphoto.com/photos/water-splash-picture-id182812025?b=1&k=20&m=182812025&s=170667a&w=0&h=Abe_bRg3NtpUBADmUHzYGMXiLhEmAKTCyTU9Lrpokro=',
+					}
+				]}
+			/>
 		</section>
 	)
 }
